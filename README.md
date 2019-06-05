@@ -46,6 +46,11 @@ If you have access to the [GitHub actions beta](https://github.com/features/acti
 1. Modify the `args` property in the `Build` and `Publish` actions inside [`.github/main.workflow`](/.github/main.workflow) with the path of your Framer package, eg:
 
    ```sh
+    workflow "Build and Publish" {
+      on = "push"
+      resolves = "Publish"
+    }
+    
     action "Build" {
       uses = "framer/bridge@master"
       args = ["build", <your-project-path.framerfx>]
